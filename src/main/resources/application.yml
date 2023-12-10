@@ -1,0 +1,6 @@
+spring:
+  security:
+    user:
+      name: cortesrmzcau
+      password: cortesrmzcau
+      roles: (ROLE_VIEWER)
