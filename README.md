@@ -2,6 +2,8 @@
 
 🤩 [Curso: Spring security 6 Desde las bases hasta OAUTH2 y JWT](https://www.udemy.com/course/spring-security-6-desde-las-bases-hasta-oauth2-y-jwt/>)
 
+![](https://github.com/cortesrmzcau/cortesrmzcau/blob/main/examples/spring-security-6/1.png?raw=true)
+
 -------------
 
 ## ⚙ Tecnologías aplicadas
@@ -21,6 +23,12 @@
     * Sirve para aplicaciones pequeñas.
 * InMemoryUserDetailsManager sirve para cambiar la contraseña del usuario ADMIN y USER de la contraseña que viene por default.
     - Sirve para pruebas pequeñas cuando se este implementando seguridad.
+
+### Sección 3
+
+* Encrypt: Es una técnica de codificación en la que un mensaje se codifica mediante el uso de un algoritmo de cifrado de tal manera que el personal autorizado pueda acceder al mensaje o información. Los algoritmoas más comunes son el AES y ESA.
+* Encode: Transformar los datos en una forma que sea legible por la mayoría de los sistemas o que pueda ser utilizada por cualquier proceso externo. No se puede usar para proteger datos. Los algoritmos más comunes son ASCII, BASE64 y UNICODE.
+* Hashing: Los datos se convertiran en hash mediante alguna función hash, que puede ser cualquier número generado a partir de una cadena o texto. La función del hash siempre va dar el mismo resultado. Los datos una vez que se cifran, no son reversibles. Los algoritmos más comunes son MD5 y SHA256.
 
 -------------
 ## Encuéntrame
