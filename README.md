@@ -1,6 +1,6 @@
 ## Hello World! 👋
 
-🤩 [Curso: Spring security 6 Desde las bases hasta OAUTH2 y JWT](https://www.udemy.com/course/spring-security-6-desde-las-bases-hasta-oauth2-y-jwt/>)
+🤩 Práctica del [Curso: Spring security 6 Desde las bases hasta OAUTH2 y JWT](https://www.udemy.com/course/spring-security-6-desde-las-bases-hasta-oauth2-y-jwt/>)
 
 ![](https://github.com/cortesrmzcau/cortesrmzcau/blob/main/examples/spring-security-6/1.png?raw=true)
 
@@ -14,7 +14,6 @@
 [![Docker](https://img.shields.io/badge/Docker-1d63ed?style=for-the-badge&logo=docker&logoColor=white&labelColor=101010)]()
 
 -------------
-
 ## 🚀 Resumen
 
 ### Sección 2
