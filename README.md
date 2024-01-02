@@ -33,6 +33,11 @@
 
 * AuthenticationProvider: Procesa la solicitud de autenticación y retorna un objeto autenticado con credenciales.
 
+### Sección 5
+
+* CORS: Mecanismo que permite al servidor indicar que dominio, esquema o puerto con un origen distinto del suyo desde el navegador debería permitir la carga de recursos.
+* CSRF: Tipo de vulneravilidad en un sitio web en el que comandos no autorizados son enviados por un usuario en el cual el sitio web confía.
+
 -------------
 ### Encuéntrame
 
