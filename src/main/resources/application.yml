@@ -1,0 +1,17 @@
+#spring:
+#  security:
+#    user:
+#      name: cortesrmzcau
+#      password: cortesrmzcau
+#      roles: (ROLE_VIEWER)
+
+# Conexion a la base de datos
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/security_bank
+    username: cortesrmzcau
+    password: cortesrmzcau
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
