@@ -24,8 +24,6 @@ import javax.sql.DataSource;
 @Configuration
 @Log4j2
 public class SecurityConfiguration {
-    @Value("${spring.pwd}")
-    private String pwdCesar;
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) {
@@ -64,22 +62,9 @@ public class SecurityConfiguration {
         return new JdbcUserDetailsManager(dataSource);
     }*/
 
-    /*@Bean
-    PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
-    }*/
-
     @Bean
     PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return NoOpPasswordEncoder.getInstance();
     }
-
-    /*@Override
-    public void run(String... args) throws Exception {
-        log.info("Password encoder: " + passwordEncoder().encode(pwdCesar));
-        // cortesrmzcau@gmail.com
-        // cesar, en hash es 94551106
-        // cesar, usando passwordEncoder es $2a$10$FpPSc0tZdnumR5hUe8AOwOgSpYMHRx7I5gUxF6fcqZrP3XfGTM0.W
-    }*/
 
 }
