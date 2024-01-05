@@ -38,6 +38,20 @@
 * CORS: Mecanismo que permite al servidor indicar que dominio, esquema o puerto con un origen distinto del suyo desde el navegador debería permitir la carga de recursos.
 * CSRF: Tipo de vulneravilidad en un sitio web en el que comandos no autorizados son enviados por un usuario en el cual el sitio web confía.
 
+### Sección 6
+
+* Autenticacion: Valida lo que el usuario dice ser, debe autenticarse antes de recibir una autorización, necesita credenciales y si algo falla retorna un status 401.
+* Autorizacion: Otorga acceso específico a un usuario, se realiza después de autenticarse, necesita roles o privilegios y si algo falla retorna un 403.
+* Autorities / Roles: Son almacenados en el objeto GrenteAutority que solo tiene el método getAuthority() y este regresa el nombre del privilegio o role.
+  * Authority: Permiso individual, ejemplo VIEW_ACCOUNT.
+  * Role: Es un grupo de permisos, ejemplo ROLE_ADMIN.
+* SimpleGrantesAuthority: Es la implementación por defecto de spring security que extiende de GreantedAuthority tenemos el método getAutorithy el cual se utiliza para construir el objeto Authenticacion.
+
+Los privilegios(Authorities) pueden ser almacenados de la siguiente forma:
+  hasAuthority: Regresa true si el usuario principal tiene el privilegio indicado.
+  hasAnyAuthority: Regresa un true si el usuario prinipal tiene alguno de los privilegios indicados.
+  access(): Asignas privilegios usando AND, OR y poder condicionar accesos.
+
 -------------
 ### Encuéntrame
 
