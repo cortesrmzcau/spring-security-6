@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.jaas.memory.InMemoryConfiguration;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,6 +31,7 @@ import javax.sql.DataSource;
 import java.util.List;
 
 @Configuration
+@EnableMethodSecurity
 @Log4j2
 public class SecurityConfiguration {
 
@@ -41,7 +43,12 @@ public class SecurityConfiguration {
         try {
             httpSecurity.authorizeHttpRequests(auth ->
                     // anyRequest.permiteAll() es para permitir que se acceda a cualquier endpoint
-                    auth.requestMatchers("/loans", "/about_us", "/cards").authenticated()
+                    //auth.requestMatchers("/loans", "/about_us", "/cards").authenticated()
+                    auth
+                            .requestMatchers("/loans").hasRole("VIEW_LOANS") // hasAuthority("VIEW_LOANS")
+                            .requestMatchers("/balance").hasAuthority("VIEW_BALANCE")
+                            .requestMatchers("/cards").hasAuthority("VIEW_CARDS") // hasRole("ADMIN")
+                            //.requestMatchers("/accounts").hasAnyAuthority("VIEW_ACCOUNT", "VIEW_CARDS")
                             .anyRequest().permitAll())
                             .formLogin(Customizer.withDefaults())
                             .httpBasic(Customizer.withDefaults());
@@ -56,27 +63,6 @@ public class SecurityConfiguration {
             throw new IllegalStateException(exception);
         }
     }
-
-    /*@Bean
-    InMemoryUserDetailsManager inMemoryUserDetailsManager() {
-        UserDetails admin = User.withUsername("admin")
-                .password("123")
-                .authorities("ADMIN")
-                .build();
-
-        UserDetails user = User.withUsername("user")
-                .password("123")
-                .authorities("USER")
-                .build();
-
-        return new InMemoryUserDetailsManager(admin, user);
-    }*/
-
-    // Si se usa CustomerUserDetails esta parte se comenta
-    /*@Bean
-    UserDetailsService userDetailsService (DataSource dataSource) {
-        return new JdbcUserDetailsManager(dataSource);
-    }*/
 
     @Bean
     PasswordEncoder passwordEncoder() {
