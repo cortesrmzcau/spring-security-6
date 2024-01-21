@@ -37,8 +37,6 @@ public class SecurityConfiguration {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) {
-        httpSecurity.addFilterBefore(new ApiKeyFilter(), BasicAuthenticationFilter.class);
-
         var requestHandler = new CsrfTokenRequestAttributeHandler();
         requestHandler.setCsrfRequestAttributeName("_csrf");
 
