@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
+import java.util.Date;
 import java.util.function.Function;
 
 @Service
@@ -26,8 +27,17 @@ public class JwtService {
                 .getBody();
     }
 
-    public <T> T getAllClaimsFromToken(String token, Function<Claims, T> claimsResolver) {
+    public <T> T getClaimsFromToken(String token, Function<Claims, T> claimsResolver) {
         final var claims = this.getAllClaimsFromToken(token);
         return claimsResolver.apply(claims);
+    }
+    
+    private Date getDateExpirationToken (String token) {
+        return this.getClaimsFromToken(token, Claims::getExpiration);
+    }
+
+    private Boolean isTokenExpired(String token) {
+        final var expirationDate = this.getDateExpirationToken(token);
+        return expirationDate.before(new Date());
     }
 }
