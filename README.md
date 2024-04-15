@@ -55,7 +55,11 @@ Los privilegios(Authorities) pueden ser almacenados de la siguiente forma:
 ### Sección 7
 
 * En una app web de java, el contenedor servlet (servidor web) se encarga de traducir los mensajes http para que java los entienda. El servlet container transforma los mensajes http a Servlet request para poder ser recibidos como un objeto de java. De manera similar, Servlet response regresa como salida a servlet container desde el servlet, entonces todo lo que se escribe esta impulsado por servlet
-* Los friltros dentro de las aplicaciones java se pueden usar para interceptar cada solicitud como respuesta para realizar un trabajo previo a nuestra lógica comercial. Spring security aplica la seguridad en función dentro de nuestras configuraciones web. 
+* Los friltros dentro de las aplicaciones java se pueden usar para interceptar cada solicitud como respuesta para realizar un trabajo previo a nuestra lógica comercial. Spring security aplica la seguridad en función dentro de nuestras configuraciones web.
+
+### Sección 7
+
+* Se realiza la implementación y acceso a controllers de acuerdo con el JWT. 
 
 -------------
 

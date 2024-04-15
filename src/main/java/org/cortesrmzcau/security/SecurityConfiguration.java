@@ -39,7 +39,7 @@ import java.util.List;
 public class SecurityConfiguration {
 
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+    SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, JwtValidationFilter jwtValidationFilter) throws Exception {
         httpSecurity.sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         var requestHandler = new CsrfTokenRequestAttributeHandler();
         requestHandler.setCsrfRequestAttributeName("_csrf");
@@ -56,6 +56,7 @@ public class SecurityConfiguration {
                             .anyRequest().permitAll())
                             .formLogin(Customizer.withDefaults())
                             .httpBasic(Customizer.withDefaults());
+            httpSecurity.addFilterAfter(jwtValidationFilter, BasicAuthenticationFilter.class);
             httpSecurity.cors(cors -> corsConfigurationSource());
             httpSecurity.csrf(csrf -> csrf
                     .csrfTokenRequestHandler(requestHandler)
